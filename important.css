@@ -1,0 +1,108 @@
+/* General Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #ffe0ec, #b5f4ff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    overflow-x: hidden;
+}
+
+.page-title {
+    font-size: 32px;
+    color: #ff69b4;
+    margin-bottom: 40px;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 10;
+}
+
+.nav-btn {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    transition: transform 0.2s;
+}
+
+.nav-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Card Stack as a Horizontal Layout */
+.card-stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Individual Card */
+.card {
+    width: 180px;
+    height: 260px;
+    perspective: 1000px;
+}
+
+/* Card Flip Inner */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Flip Effect on Hover */
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card Sides */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Front Face */
+.card-front {
+    background: #fff0f5;
+    color: #ff1493;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Back Face */
+.card-back {
+    background: #f0fff0;
+    color: #333;
+    transform: rotateY(180deg);
+    font-size: 16px;
+}
+

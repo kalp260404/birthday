@@ -1,0 +1,264 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffdee9, #b5fffc);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Envelope Styling */
+.envelope {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    background: linear-gradient(145deg, #ffffff, #f8f8f8);
+    border: 3px solid #ffb6c1;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    overflow: visible;
+}
+
+/* Closed envelope flap - triangular flap pointing up */
+.envelope .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-top: 100px solid #ffb6c1;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+    z-index: 3; /* Keep it fixed */
+    transform-origin: top;
+    transition: transform 1s ease;
+}
+
+/* Add flap crease line for realism */
+.envelope .flap::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: -200px;
+    width: 400px;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        rgba(255, 182, 193, 0.6) 10%, 
+        rgba(255, 182, 193, 0.9) 50%, 
+        rgba(255, 182, 193, 0.6) 90%, 
+        transparent 100%);
+    z-index: 2;
+}
+
+.envelope .letter {
+    display: none; /* default: hidden */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 60%;
+    background: linear-gradient(145deg, #ffffff, #fafafa);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.envelope .letter p {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ff69b4;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 1.4;
+}
+
+/* Add decorative elements for closed envelope */
+.envelope::before {
+    content: '💌';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 20px;
+    z-index: 4;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Enhanced Button Styling */
+.start-btn {
+    background: linear-gradient(45deg, #ff69b4, #ff85c1);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.start-btn:hover::before {
+    left: 100%;
+}
+
+.start-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
+}
+
+.start-btn:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Add subtle animation to envelope */
+@keyframes envelope-float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.envelope {
+    animation: envelope-float 3s ease-in-out infinite;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .envelope {
+        width: 320px;
+        height: 200px;
+        margin-bottom: 35px;
+    }
+    
+    .envelope .flap {
+        border-left: 160px solid transparent;
+        border-right: 160px solid transparent;
+        border-top: 80px solid #ffb6c1;
+    }
+    
+    .envelope .flap::before {
+        top: 80px;
+        left: -160px;
+        width: 320px;
+    }
+    
+    .envelope::before {
+        font-size: 18px;
+        top: 12px;
+        right: 15px;
+    }
+    
+    .envelope .letter p {
+        font-size: 18px;
+    }
+    
+    .start-btn {
+        padding: 16px 32px;
+        font-size: 18px;
+    }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .envelope {
+        width: 280px;
+        height: 175px;
+        margin-bottom: 30px;
+    }
+    
+    .envelope .flap {
+        border-left: 140px solid transparent;
+        border-right: 140px solid transparent;
+        border-top: 70px solid #ffb6c1;
+    }
+    
+    .envelope .flap::before {
+        top: 70px;
+        left: -140px;
+        width: 280px;
+    }
+    
+    .envelope::before {
+        font-size: 16px;
+        top: 10px;
+        right: 12px;
+    }
+    
+    .envelope .letter p {
+        font-size: 16px;
+        line-height: 1.3;
+    }
+    
+    .start-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Ultra Small Devices */
+@media (max-width: 320px) {
+    .envelope {
+        width: 260px;
+        height: 160px;
+        margin-bottom: 25px;
+    }
+    
+    .envelope .flap {
+        border-left: 130px solid transparent;
+        border-right: 130px solid transparent;
+        border-top: 65px solid #ffb6c1;
+    }
+    
+    .envelope .flap::before {
+        top: 65px;
+        left: -130px;
+        width: 260px;
+    }
+    
+    .envelope .letter p {
+        font-size: 14px;
+    }
+    
+    .start-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
