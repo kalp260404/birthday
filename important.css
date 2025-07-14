@@ -107,85 +107,105 @@ body {
 }
 
 /* Mobile Responsive Styles */
+/* Tablet & Mobile Responsive Styles */
+/* ✅ Mobile & Tablet Styles */
 @media screen and (max-width: 768px) {
     body {
-        padding: 100px 15px 20px 15px;
+        padding: 100px 15px 40px;
     }
-    
+
     .page-title {
         font-size: 28px;
         margin-bottom: 30px;
         text-align: center;
     }
-    
+
     .nav-buttons {
-        padding: 0 20px;
+        padding: 0 15px;
     }
-    
+
     .nav-btn {
-        padding: 15px 25px;
-        font-size: 16px;
-        min-width: 80px;
+        padding: 6px 14px;
+        font-size: 13px;
+        min-width: unset;
+        border-radius: 20px;
     }
-    
+
     .card-stack {
         flex-direction: column !important;
         align-items: center !important;
         gap: 25px;
-        margin-top: 20px;
         width: 100%;
+        margin-top: 30px;
     }
-    
+
     .card {
-        width: 90%;
-        max-width: 300px;
-        height: 220px;
+        width: 90% !important;
+        max-width: 320px;
+        height: 230px;
     }
-    
-    .card-front, .card-back {
+
+    .card-front,
+    .card-back {
         padding: 20px;
+        font-size: 15px;
     }
-    
+
     .card-front {
         font-size: 16px;
     }
-    
+
     .card-back {
         font-size: 15px;
     }
 }
 
-/* Extra small mobile devices */
+/* ✅ Extra Small Devices */
 @media screen and (max-width: 480px) {
     body {
-        padding: 90px 10px 20px 10px;
+        padding: 110px 10px 30px;
     }
-    
+
     .page-title {
         font-size: 24px;
+        margin-bottom: 25px;
+        text-align: center;
     }
-    
+
+    .nav-buttons {
+        padding: 0 10px;
+    }
+
     .nav-btn {
-        padding: 18px 30px;
-        font-size: 18px;
-        min-width: 90px;
+        padding: 6px 14px;
+        font-size: 13px;
+        min-width: unset;
+        border-radius: 20px;
     }
-    
+
     .card {
-        width: 95%;
+        width: 95% !important;
         max-width: 280px;
-        height: 200px;
+        height: 210px;
     }
-    
-    .card-front, .card-back {
+
+    .card-front,
+    .card-back {
         padding: 15px;
     }
-    
+
     .card-front {
         font-size: 15px;
     }
-    
+
     .card-back {
         font-size: 14px;
+    }
+}
+
+/* ✅ Tap-to-flip on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .card:active .card-inner {
+        transform: rotateY(180deg);
     }
 }
